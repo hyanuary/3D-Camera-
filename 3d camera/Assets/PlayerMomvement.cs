@@ -6,15 +6,19 @@ public class PlayerMomvement : MonoBehaviour {
     public float speed = 1;
     public float turn = 10000;
 
+	Drone drone;
+
 
 	// Use this for initialization
 	void Start () {
+		drone = GameObject.FindGameObjectWithTag ("Drone").GetComponent<Drone> ();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
   
+		//move left to right
 		float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 		transform.Translate(horizontal, 0,0 );
 
@@ -23,5 +27,22 @@ public class PlayerMomvement : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.Translate(0, 0, vertical);
 
+		//turn the player around
+		float turn1 = turn * Time.deltaTime;
+
+		if(Input.GetKey("e"))
+			transform.Rotate(0, turn1, 0); 
+
+		if (Input.GetKey ("q"))
+			transform.Rotate (0, -turn1, 0);
+
+		//DroneOn ();
+
     }
+
+	public void DroneOn()
+	{
+		if (Input.GetKey ("f"))
+			drone.isOn = true;
+	}
 }
