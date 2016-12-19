@@ -28,5 +28,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-3D-Camera-/Library/
-3D-Camera-/Temp/
+3D-Camera-/3d camera/Library/
+3D-Camera-/3d camera/Temp/
